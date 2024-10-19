@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resume Uploader</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Upload Resumes</h1>
+        <form method="POST" enctype="multipart/form-data">
+            <input type="file" name="files" accept=".pdf" multiple required>
+            <button type="submit">Upload</button>
+        </form>
+        <h2>Filter Criteria</h2>
+        <form method="POST" action="{{ url_for('filter_data') }}">
+            <label for="qualification">Qualification:</label>
+            <input type="text" name="qualification" placeholder="M.Tech, B.Tech, etc.">
+            <label for="age_limit">Minimum Age:</label>
+            <input type="number" name="age_limit" placeholder="Enter age limit">
+            <button type="submit">Filter</button>
+        </form>
+    </div>
+</body>
+</html>
